@@ -5,9 +5,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const USER_ID = "john_doe_17091999";  // Replace with your details
-const EMAIL = "john@xyz.com";         // Replace with your details
-const ROLL_NUMBER = "ABCD123";        // Replace with your details
+app.get("/", (req, res) => {
+    res.send("Backend is running");
+});
 
 app.get("/bfhl", (req, res) => {
     res.status(200).json({ operation_code: 1 });
@@ -32,9 +32,9 @@ app.post("/bfhl", (req, res) => {
 
         res.json({
             is_success: true,
-            user_id: USER_ID,
-            email: EMAIL,
-            roll_number: ROLL_NUMBER,
+            user_id: "amit_kumar_01011999",
+            email: "amit@example.com",
+            roll_number: "CU123456",
             numbers,
             alphabets,
             highest_alphabet
@@ -45,5 +45,4 @@ app.post("/bfhl", (req, res) => {
     }
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+module.exports = app;
